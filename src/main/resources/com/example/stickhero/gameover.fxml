@@ -40,7 +40,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <Label fx:id="titleText" alignment="CENTER" contentDisplay="CENTER" layoutX="-78.0" layoutY="39.0" prefHeight="235.0" prefWidth="536.0" text="GAME OVER!" textAlignment="CENTER" wrapText="true">
       <font>
          <Font name="FreeSans Bold" size="53.0" />
@@ -72,17 +72,13 @@
    <Button fx:id="home" layoutX="65.0" layoutY="481.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="79.0" style="-fx-background-color: #00000000;">
       <graphic>
          <ImageView fitHeight="92.0" fitWidth="94.0">
-            <image>
-               <Image url="@home.png" />
-            </image>
+            <Image url="@home.png"/>
          </ImageView>
       </graphic></Button>
    <Button fx:id="restart" layoutX="217.0" layoutY="487.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="79.0" style="-fx-background-color: #00000000;">
       <graphic>
          <ImageView fitHeight="85.0" fitWidth="92.0">
-            <image>
-               <Image url="@restart.png" />
-            </image>
+            <Image url="@restart.png"/>
          </ImageView>
       </graphic></Button>
 </Pane>
