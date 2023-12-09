@@ -23,6 +23,8 @@ public class StickHeroController implements Initializable {
     @FXML
     public static Label cherryScore;
     @FXML
+    public ImageView backgroundImg;
+    @FXML
     private Label titleText;
     @FXML
     private static Pane pane;
@@ -47,6 +49,9 @@ public class StickHeroController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleText.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null) {
+                ClearBackground removeUnnecessary = new ClearBackground();
+                removeUnnecessary.start();
+                StickHeroApplication.addThread(removeUnnecessary);
                 scene = titleText.getScene();
                 defaultX = StickHeroApplication.getWidth() / 6.33333;
                 defaultY = StickHeroApplication.getHeight() / 1.35964;
@@ -179,7 +184,7 @@ public class StickHeroController implements Initializable {
             });
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 

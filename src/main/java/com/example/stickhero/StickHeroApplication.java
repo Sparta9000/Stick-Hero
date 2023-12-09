@@ -3,9 +3,13 @@ package com.example.stickhero;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class StickHeroApplication extends Application {
     private static final double width = 380;
@@ -15,14 +19,31 @@ public class StickHeroApplication extends Application {
     private static int cherries = 0;
     private static final int reviveThreshold = 3;
     private static Stage stage;
+    private static final ArrayList<ClearBackground> threads = new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(StickHeroApplication.class.getResource("home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), width, height);
+
+        Media media = new Media(Objects.requireNonNull(StickHeroApplication.class.getResource("bgm.mp3")).toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
+        mediaPlayer.play();
+
         stage.setTitle("Stick Hero");
         stage.setScene(scene);
         stage.show();
         StickHeroApplication.stage = stage;
+    }
+
+    @Override
+    public void stop() throws Exception {
+        for(ClearBackground t: threads) {
+            t.stopExecution();
+        }
+        super.stop();
     }
 
     public static void reload() {
@@ -33,8 +54,12 @@ public class StickHeroApplication extends Application {
             stage.setScene(scene);
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
+    }
+
+    public static void addThread(ClearBackground t) {
+        threads.add(t);
     }
 
     public static double getWidth() {

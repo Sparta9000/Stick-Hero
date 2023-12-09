@@ -7,7 +7,6 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class MoveMechanics {
@@ -31,10 +30,9 @@ public class MoveMechanics {
         return timeline;
     }
 
-    public static Timeline translationMove(Node node, double x, double y, int duration, EventHandler<ActionEvent> function) {
+    public static void translationMove(Node node, double x, double y, int duration, EventHandler<ActionEvent> function) {
         Timeline timeline = translationMove(node, x, y, duration);
         timeline.setOnFinished(function);
-        return timeline;
     }
 
     public static Timeline translationMoveX(Node node, double x, int duration) {

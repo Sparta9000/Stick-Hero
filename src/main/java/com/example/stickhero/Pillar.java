@@ -18,9 +18,21 @@ public class Pillar {
         return nextPillar;
     }
 
+    public static double getNextPillarX() {
+        return StickHeroController.rand.nextDouble(currentPillar.getLayoutX() + currentPillar.getWidth() + 10, StickHeroApplication.getWidth()-10);
+    }
+
+    public static double getNextPillarXCoord() {
+        return StickHeroController.rand.nextDouble(10, StickHeroApplication.getWidth());
+    }
+
+    public static double getNextPillarWidth(double x) {
+        return StickHeroController.rand.nextDouble(10, StickHeroApplication.getWidth() - x);
+    }
+
     public static void generateNextPillar() {
-        double x = StickHeroController.rand.nextDouble(currentPillar.getLayoutX() + currentPillar.getWidth() + 10, StickHeroApplication.getWidth()-10);
-        double width = StickHeroController.rand.nextDouble(10, StickHeroApplication.getWidth() - x);
+        double x = getNextPillarX();
+        double width = getNextPillarWidth(x);
 
         nextPillar = new Rectangle();
         nextPillar.setLayoutX(StickHeroApplication.getWidth() + 10);
