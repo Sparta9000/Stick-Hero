@@ -52,7 +52,6 @@ public class ClearBackground extends Thread{
                 }
 
                 if ((x + w < 0) && (y + h < 0)) {
-                    System.out.println(node);
                     pane.getChildren().remove(node);
                 }
             }
